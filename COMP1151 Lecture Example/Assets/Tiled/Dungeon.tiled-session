@@ -1,0 +1,43 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tiny-dungeon.tsx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "tiny-dungeon.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 155,
+                "y": -253.5
+            }
+        },
+        "tiny-dungeon.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 4
+        }
+    },
+    "last.imagePath": "/Users/malcolmryan/Documents/Classes/COMP1151/26s1/comp1151-lectures-visual-scripting-example/COMP1151 Lecture Example/Assets/Sprites/kenney_tiny-dungeon/Tilemap",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "tiny-dungeon.tsx"
+    ],
+    "project": "Dungeon.tiled-project",
+    "recentFiles": [
+        "tiny-dungeon.tsx",
+        "tiny-dungeon.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.spacing": 1,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
