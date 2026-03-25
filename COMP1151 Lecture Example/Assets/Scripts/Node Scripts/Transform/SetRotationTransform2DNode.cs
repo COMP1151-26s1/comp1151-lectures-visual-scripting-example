@@ -11,12 +11,13 @@ using UnityEngine.InputSystem;
 /// Licensed under Creative Commons License CC0 Universal
 /// https://creativecommons.org/publicdomain/zero/1.0/
 
-namespace WordsOnPlay.Nodes {
+namespace WordsOnPlay.Nodes 
+{
 
-[UnitTitle("Rotate")]
-[UnitShortTitle("Rotate Transform")]
+[UnitTitle("Set Rotation")]
+[UnitShortTitle("Set Rotation : Transform")]
 [UnitCategory("COMP1151/Transform")]
-public class RotateTransform2DNode : Unit
+public class SetRotationTransform2DNode : Unit
 {
     [DoNotSerialize, PortLabelHidden]
     public ControlInput inputTrigger;
@@ -30,6 +31,9 @@ public class RotateTransform2DNode : Unit
     [DoNotSerialize]
     public ValueInput angleValue;
 
+    [DoNotSerialize]
+    public ValueInput spaceValue;
+
     protected override void Definition()
     {
         //The lambda to execute our node action when the inputTrigger port is triggered.
@@ -38,16 +42,31 @@ public class RotateTransform2DNode : Unit
             //Making the resultValue equal to the input value from myValueA concatenating it with myValueB.
             Transform transform = flow.GetValue<Transform>(transformValue);
             float angle = flow.GetValue<float>(angleValue);
-            transform.Rotate(Vector2.up, angle);
+            Space space = flow.GetValue<Space>(spaceValue);
+            Quaternion rotation = Quaternion.Euler(angle * Vector3.forward);
+
+            switch (space)
+            {
+                case Space.World:
+                    transform.rotation = rotation;
+                    break;
+
+                case Space.Self:
+                    transform.localRotation = rotation;
+                    break;
+            }
+
             return outputTrigger;
         });
         outputTrigger = ControlOutput("outputTrigger");
 
         transformValue  = ValueInput<Transform>("transform", null).NullMeansSelf();
         angleValue = ValueInput<float>("angle", 0);
+        spaceValue = ValueInput<Space>("space", Space.World);
 
         Requirement(transformValue, inputTrigger);
         Requirement(angleValue, inputTrigger);
+        Requirement(spaceValue, inputTrigger);
         Succession(inputTrigger, outputTrigger);
     }
 }
