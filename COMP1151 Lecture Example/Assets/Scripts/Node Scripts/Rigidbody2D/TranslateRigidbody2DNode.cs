@@ -20,6 +20,8 @@ namespace WordsOnPlay.Nodes {
 [UnitCategory("COMP1151/Rigidbody2D")]
 public class TranslateRigidbody2D : Unit
 {
+    public enum MoveWith { SetPosition, MovePosition };
+
     [DoNotSerialize, PortLabelHidden]
     public ControlInput inputTrigger;
 
@@ -34,6 +36,9 @@ public class TranslateRigidbody2D : Unit
 
     [DoNotSerialize]
     public ValueInput spaceValue;
+
+    [DoNotSerialize]
+    public ValueInput moveWithValue;
 
     protected override void Definition()
     {
@@ -55,7 +60,17 @@ public class TranslateRigidbody2D : Unit
                 v = go.transform.TransformVector(v);
             }
 
-            rigidbody.MovePosition(rigidbody.position + v);
+            MoveWith moveWith = flow.GetValue<MoveWith>(moveWithValue);
+            switch (moveWith)
+            {
+                case MoveWith.MovePosition:
+                    rigidbody.MovePosition(rigidbody.position + v);
+                    break;
+
+                case MoveWith.SetPosition:
+                    rigidbody.position = rigidbody.position + v;
+                    break;
+            }
             return outputTrigger;
         });
         outputTrigger = ControlOutput("outputTrigger");
@@ -63,6 +78,7 @@ public class TranslateRigidbody2D : Unit
         gameObjectValue  = ValueInput<GameObject>("gameObject", null).NullMeansSelf();
         vectorValue = ValueInput<Vector2>("vector", Vector2.zero);
         spaceValue = ValueInput<Space>("space", Space.World);
+        moveWithValue = ValueInput<MoveWith>("move with", MoveWith.MovePosition);
 
         Requirement(gameObjectValue, inputTrigger);
         Requirement(vectorValue, inputTrigger);
