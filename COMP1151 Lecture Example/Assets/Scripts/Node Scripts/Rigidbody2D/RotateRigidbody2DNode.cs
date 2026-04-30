@@ -31,6 +31,10 @@ public class RotateRigidbody2D : Unit
     [DoNotSerialize]
     public ValueInput angleValue;
 
+    public enum MoveWith { SetRotation, MoveRotation };
+    [DoNotSerialize]
+    public ValueInput moveWithValue;
+
     protected override void Definition()
     {
         //The lambda to execute our node action when the inputTrigger port is triggered.
@@ -43,13 +47,26 @@ public class RotateRigidbody2D : Unit
                 throw new NullReferenceException("GameObject does not include a Rigidbody2D component");
             }
             float angle = flow.GetValue<float>(angleValue);
-            rigidbody.MoveRotation(rigidbody.rotation + angle);
+
+            MoveWith moveWith = flow.GetValue<MoveWith>(moveWithValue);
+            switch (moveWith)
+            {
+                case MoveWith.MoveRotation:
+                    rigidbody.MoveRotation(rigidbody.rotation + angle);
+                    break;
+
+                case MoveWith.SetRotation:
+                    rigidbody.rotation = rigidbody.rotation + angle;
+                    break;
+            }
+
             return outputTrigger;
         });
         outputTrigger = ControlOutput("outputTrigger");
 
         gameObjectValue  = ValueInput<GameObject>("gameObject", null).NullMeansSelf();
         angleValue = ValueInput<float>("angle", 0);
+        moveWithValue = ValueInput<MoveWith>("move with", MoveWith.MoveRotation);
 
         Requirement(gameObjectValue, inputTrigger);
         Requirement(angleValue, inputTrigger);

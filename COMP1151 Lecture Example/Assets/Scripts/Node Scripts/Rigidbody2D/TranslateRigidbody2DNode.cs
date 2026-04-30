@@ -20,8 +20,6 @@ namespace WordsOnPlay.Nodes {
 [UnitCategory("COMP1151/Rigidbody2D")]
 public class TranslateRigidbody2D : Unit
 {
-    public enum MoveWith { SetPosition, MovePosition };
-
     [DoNotSerialize, PortLabelHidden]
     public ControlInput inputTrigger;
 
@@ -37,6 +35,7 @@ public class TranslateRigidbody2D : Unit
     [DoNotSerialize]
     public ValueInput spaceValue;
 
+    public enum MoveWith { SetPosition, MovePosition };
     [DoNotSerialize]
     public ValueInput moveWithValue;
 

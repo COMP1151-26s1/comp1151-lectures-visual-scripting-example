@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: PlayerLook
+  m_EditorClassIdentifier: Unity.VisualScripting.Flow::Unity.VisualScripting.ScriptGraphAsset
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":700.0,"y":239.305},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-207.0,"y":-243.0},"guid":"bc550622-0340-4a9b-a6d0-981cc9ee6409","$version":"A","$type":"Unity.VisualScripting.Start"},{"defaultValues":{"input
+      asset":{"$content":0,"$type":"UnityEngine.Object"},"mapping":{"$content":"Player","$type":"System.String"},"action":{"$content":"Aim","$type":"System.String"}},"position":{"x":20.0,"y":37.0},"guid":"0da50c6b-0d7f-487a-8663-d489e23c34d7","$version":"A","$type":"WordsOnPlay.Nodes.GetInputVector2Node","$id":"11"},{"coroutine":false,"defaultValues":{},"position":{"x":-246.0,"y":37.0},"guid":"fa6add38-9f7c-4fd5-bc5f-41f743509473","$version":"A","$type":"Unity.VisualScripting.FixedUpdate","$id":"13"},{"defaultValues":{"gameObject":null,"angle":{"$content":0.0,"$type":"System.Single"},"move
+      with":{"$content":"MoveRotation","$type":"WordsOnPlay.Nodes.RotateRigidbody2D+MoveWith"}},"position":{"x":842.0,"y":48.0},"guid":"4062fb42-4b6f-403a-9bc9-e05b1d07bdb1","$version":"A","$type":"WordsOnPlay.Nodes.RotateRigidbody2D","$id":"15"},{"chainable":false,"parameterNames":["from","to"],"member":{"name":"SignedAngle","parameterTypes":["UnityEngine.Vector2","UnityEngine.Vector2"],"targetType":"UnityEngine.Vector2","targetTypeName":"UnityEngine.Vector2","$version":"A"},"defaultValues":{"%from":{"x":0.0,"y":0.0,"$type":"UnityEngine.Vector2"},"%to":{"x":0.0,"y":0.0,"$type":"UnityEngine.Vector2"}},"position":{"x":518.0,"y":111.0},"guid":"8fad6434-edc6-499f-b761-7bf85a4bcb29","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"17"},{"member":{"name":"right","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null},"position":{"x":186.0,"y":242.0},"guid":"a8b4c5ba-a58f-45cc-a651-9087bea081f1","$version":"A","$type":"Unity.VisualScripting.GetMember","$id":"21"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"11"},"destinationKey":"inputTrigger","guid":"ce368de0-eac3-4a98-b4eb-bea01165f013","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"11"},"sourceKey":"outputTrigger","destinationUnit":{"$ref":"17"},"destinationKey":"enter","guid":"464c4294-9c81-4f87-92b8-f1b5c67def6d","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"17"},"sourceKey":"exit","destinationUnit":{"$ref":"15"},"destinationKey":"inputTrigger","guid":"c2864c5e-b69a-4055-a7b3-e8fd426116d7","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"11"},"sourceKey":"result","destinationUnit":{"$ref":"17"},"destinationKey":"%to","guid":"224abcc1-77bf-4fc4-b43e-9c7b44d72413","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"value","destinationUnit":{"$ref":"17"},"destinationKey":"%from","guid":"e0868fb9-84ca-4ba8-923b-cb003b654139","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"17"},"sourceKey":"result","destinationUnit":{"$ref":"15"},"destinationKey":"angle","guid":"bc0b24ef-98d5-4eda-a61e-ce623c1a3d7c","$type":"Unity.VisualScripting.ValueConnection"},{"position":{"xMin":-11.0,"yMin":-36.0,"xMax":1207.0,"yMax":405.0},"label":"Rotate
+      object in direction of input","comment":null,"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"guid":"93385b3e-f5a7-45d9-9032-014b207d335a","$version":"A","$type":"Unity.VisualScripting.GraphGroup"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
