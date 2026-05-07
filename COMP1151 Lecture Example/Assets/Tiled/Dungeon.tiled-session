@@ -10,10 +10,10 @@
     "fileStates": {
         "tiny-dungeon.tmx": {
             "scale": 1,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 40.5,
-                "y": -541
+                "x": 52.5,
+                "y": -375
             }
         },
         "tiny-dungeon.tsx": {
