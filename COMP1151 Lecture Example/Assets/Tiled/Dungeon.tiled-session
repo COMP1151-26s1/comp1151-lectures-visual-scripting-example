@@ -3,17 +3,17 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tiny-dungeon.tsx",
+    "activeFile": "tiny-dungeon.tmx",
     "expandedProjectPaths": [
         "."
     ],
     "fileStates": {
         "tiny-dungeon.tmx": {
             "scale": 1,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 155,
-                "y": -253.5
+                "x": 40.5,
+                "y": -541
             }
         },
         "tiny-dungeon.tsx": {
@@ -28,7 +28,8 @@
     "map.tileWidth": 16,
     "mapScene.enableWorlds": false,
     "openFiles": [
-        "tiny-dungeon.tsx"
+        "tiny-dungeon.tsx",
+        "tiny-dungeon.tmx"
     ],
     "project": "Dungeon.tiled-project",
     "recentFiles": [
